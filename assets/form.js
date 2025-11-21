@@ -71,7 +71,10 @@ form.innerHTML = `
 
   <input type="hidden" name="token" value="YOUR_SECRET_TOKEN">
 
-  <button type="submit">Kirim Permohonan</button>
+  <div class="button-group">
+    <button type="submit" id="submitBtn">Kirim</button>
+    <button type="reset" id="resetBtn">Atur Ulang</button>
+</div>
 `;
 
 /* Dynamic field logic */
