@@ -28,16 +28,14 @@ form.innerHTML = `
   <div id="suratFields" class="dynamic-fields">
     <label>Perihal</label><input type="text" name="surat_perihal">
     <label>Penerima</label><input type="text" name="surat_penerima">
-    <label>Alamat</label><input type="text" name="surat_alamat">
-    <label>Gambaran isi surat</label><textarea name="surat_isi"></textarea>
+    <label>Alamat Penerima</label><input type="text" name="surat_alamat">
+    <label>Catatan Tambahan</label><textarea name="surat_catatan"></textarea>
   </div>
 
   <div id="proposalFields" class="dynamic-fields">
     <label>Nama Kegiatan</label><input type="text" name="proposal_nama">
     <label>Tujuan Proposal</label><input type="text" name="proposal_tujuan">
-    <label>Batas Waktu</label><input type="date" name="proposal_deadline">
-    <label>Gambaran Isi Proposal</label><textarea name="proposal_gambaran"></textarea>
-    <label>Lain-lain</label><textarea name="proposal_lain"></textarea>
+   <label>Catatan Tambahan</label><textarea name="proposal_catatan"></textarea>
   </div>
 
   <div id="wakafFields" class="dynamic-fields">
@@ -54,8 +52,8 @@ form.innerHTML = `
 
   <div id="posterFields" class="dynamic-fields">
     <label>Nama Acara</label><input type="text" name="poster_nama">
-    <label>Tempat</label><input type="text" name="poster_tempat">
-    <label>Tanggal</label><input type="date" name="poster_tanggal">
+    <label>Lokasi Acara</label><input type="text" name="poster_lokasi">
+    <label>Tanggal Acara</label><input type="date" name="poster_tanggal">
     <label>Detail Acara</label><textarea name="poster_detail"></textarea>
   </div>
 
@@ -63,7 +61,7 @@ form.innerHTML = `
     <label>Detail Permintaan</label><textarea name="lain_detail"></textarea>
   </div>
 
-  <label>Batas Waktu</label>
+  <label>Deadline</label>
   <input type="date" name="deadline" required>
 
   <label>Material (Drag & Drop / Upload)</label>
