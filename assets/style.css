@@ -14,7 +14,3 @@ button:hover { background:#45a049; }
   label, input, select, textarea { font-size:13px; }
 }
 
-#deadline {
-    /* Set the desired smaller width */
-    width: 40%; 
-}
