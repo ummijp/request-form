@@ -13,3 +13,6 @@ button:hover { background:#45a049; }
   button { font-size:14px; padding:10px; }
   label, input, select, textarea { font-size:13px; }
 }
+#deadline {
+  width: 100%; 
+  box-sizing: border-box; 
