@@ -14,11 +14,7 @@ button:hover { background:#45a049; }
   label, input, select, textarea { font-size:13px; }
 }
 
-/* Target only the date input for the Deadline row */
-input[type="date"] {
-    width: 100%;
-    /* This ensures it respects the padding/border within the 100% width */
-    box-sizing: border-box; 
-    /* This can help if the browser's default agent style is restricting the width */
-    min-width: 100%; 
+#deadline {
+    /* Set the desired smaller width */
+    width: 40%; 
 }
