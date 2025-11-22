@@ -4,10 +4,6 @@ body {
     margin:0; 
     background:#519DE6;
 }
-h2{
-    text-align:center;
-    color:#fff;
-}
 form { 
     max-width: 500px; 
     margin: auto; 
