@@ -1,7 +1,7 @@
-/* Dynamic fields reference */
 const form = document.getElementById("requestForm");
 
-form.innerHTML = `
+// Dynamic fields HTML
+const dynamicFieldsHTML = `
   <label>Nama</label>
   <input type="text" name="name" required>
 
@@ -63,9 +63,17 @@ form.innerHTML = `
 
   <label>Deadline</label>
   <input type="date" name="deadline" required>
+
+  <div id="dropZone" style="border:2px dashed #ccc; padding:15px; text-align:center; cursor:pointer;">
+    Klik atau drag file di sini
+  </div>
+  <input type="file" id="files" name="upload[]" multiple style="display:none;">
+  <div id="fileList"></div>
 `;
 
-/* Dynamic field logic */
+form.insertAdjacentHTML("afterbegin", dynamicFieldsHTML);
+
+// Dynamic field logic
 const typeSelect = document.getElementById("type");
 const dynamicFields = {
   "surat": document.getElementById("suratFields"),
@@ -75,14 +83,15 @@ const dynamicFields = {
   "poster/flyer": document.getElementById("posterFields"),
   "lain-lain": document.getElementById("lainFields")
 };
+Object.values(dynamicFields).forEach(div => div.style.display="none");
 
 typeSelect.addEventListener("change", () => {
-  Object.values(dynamicFields).forEach(div => div.style.display = "none");
+  Object.values(dynamicFields).forEach(div => div.style.display="none");
   const selected = typeSelect.value;
-  if (dynamicFields[selected]) dynamicFields[selected].style.display = "block";
+  if(dynamicFields[selected]) dynamicFields[selected].style.display="block";
 });
 
-/* Native Drag & Drop File Upload */
+// Drag & Drop File Upload
 const dropZone = document.getElementById("dropZone");
 const fileInput = document.getElementById("files");
 const fileListDiv = document.getElementById("fileList");
@@ -94,8 +103,8 @@ dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover
 dropZone.addEventListener("drop", e => { e.preventDefault(); dropZone.classList.remove("dragover"); handleFiles(e.dataTransfer.files); });
 fileInput.addEventListener("change", () => handleFiles(fileInput.files));
 
-function handleFiles(files) {
-  for (let file of files) {
+function handleFiles(files){
+  for(let file of files){
     selectedFiles.push(file);
     const p = document.createElement("p");
     p.textContent = file.name;
@@ -103,24 +112,24 @@ function handleFiles(files) {
   }
 }
 
-/* Form submission */
-form.addEventListener("submit", function(e){
+// Form submission
+form.addEventListener("submit", e => {
   e.preventDefault();
   const fd = new FormData(form);
   selectedFiles.forEach(f => fd.append("upload[]", f));
 
-  fetch(form.action, { method: "POST", body: fd })
-  .then(res => res.json())
-  .then(data => {
-    if(data.status==="ok"){
-      alert("Permohonan berhasil dikirim!");
-      form.reset();
-      fileListDiv.innerHTML="";
-      selectedFiles=[];
-      Object.values(dynamicFields).forEach(div => div.style.display="none");
-    } else {
-      alert("Terjadi error: "+data.message);
-    }
-  })
-  .catch(err => alert("Error: "+err));
+  fetch(form.action, { method:"POST", body: fd })
+    .then(res => res.json())
+    .then(data => {
+      if(data.status==="ok"){
+        alert("Permohonan berhasil dikirim!");
+        form.reset();
+        fileListDiv.innerHTML="";
+        selectedFiles=[];
+        Object.values(dynamicFields).forEach(div => div.style.display="none");
+      } else {
+        alert("Terjadi error: "+data.message);
+      }
+    })
+    .catch(err => alert("Error: "+err));
 });
