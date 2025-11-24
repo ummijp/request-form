@@ -1,9 +1,11 @@
+/* Body & Form Layout */
 body { 
     font-family: Arial, sans-serif; 
     padding: 10px; 
-    margin:0; 
-    background:transparent;
+    margin: 0; 
+    background: transparent;
 }
+
 form { 
     max-width: 500px; 
     margin: auto; 
@@ -12,33 +14,38 @@ form {
     border-radius: 8px; 
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+/* Labels & Inputs */
 label { 
-    display:block; 
-    margin-top:15px; 
-    font-weight:bold; 
-    font-size:14px; 
+    display: block; 
+    margin-top: 15px; 
+    font-weight: bold; 
+    font-size: 14px; 
 }
-input, select, button, textarea {
-    width:100%; 
-    padding:10px; 
-    margin-top:5px; 
-    border-radius:4px; 
-    border:1px solid #ccc; 
-    box-sizing:border-box; 
-    font-size:14px;
+
+input, select, textarea, button {
+    width: 100%; 
+    padding: 10px; 
+    margin-top: 5px; 
+    border-radius: 4px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+    font-size: 14px;
 }
+
 /* Primary Button Color */
 :root {
-    --primary-color: #4A8BFF;   /* change this to your actual "Kirim" button color */
+    --primary-color: #4A8BFF;   /* change to your preferred "Kirim" color */
 }
 
 /* Button Group Layout */
 .button-group {
     display: flex;
     gap: 12px;
+    margin-top: 15px;
 }
 
-/* Submit Button (Kirim) */
+/* Submit Button */
 #submitBtn {
     background: var(--primary-color);
     color: #fff;
@@ -48,12 +55,11 @@ input, select, button, textarea {
     cursor: pointer;
     font-weight: 600;
 }
-
 #submitBtn:hover {
     opacity: 0.9;
 }
 
-/* Reset Button (Atur Ulang) — white + outline */
+/* Reset Button */
 #resetBtn {
     background: #ffffff;
     color: var(--primary-color);
@@ -63,40 +69,49 @@ input, select, button, textarea {
     cursor: pointer;
     font-weight: 600;
 }
-
 #resetBtn:hover {
     background: var(--primary-color);
     color: #ffffff;
 }
-#uploader { 
-    border:2px dashed #ccc; 
-    padding:15px; 
-    text-align:center; 
-    margin-top:5px; 
-    cursor:pointer; 
-    border-radius:4px; 
-    font-size:14px;
+
+/* Drag & Drop File Upload */
+#dropZone { 
+    border: 2px dashed #ccc; 
+    padding: 15px; 
+    text-align: center; 
+    margin-top: 5px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    font-size: 14px;
+    transition: background 0.2s, border-color 0.2s;
 }
+#dropZone.dragover {
+    background: #f0f8ff;
+    border-color: var(--primary-color);
+}
+
 #fileList { 
-    margin-top:10px; 
-    font-size:13px; 
+    margin-top: 10px; 
+    font-size: 13px; 
     word-break: break-word; 
 }
+
+/* Dynamic Fields */
 .dynamic-fields { 
-    margin-top:10px; 
-    display:none; 
+    margin-top: 10px; 
+    display: none; 
 }
 
-@media (max-width:600px){
-  form { 
-      padding: 15px; 
-  }
-  button { 
-      font-size:14px; 
-      padding:10px; 
-  }
-  label, input, select, textarea { 
-      font-size:13px; 
-  }
+/* Responsive Styles */
+@media (max-width: 600px) {
+    form { 
+        padding: 15px; 
+    }
+    button { 
+        font-size: 14px; 
+        padding: 10px; 
+    }
+    label, input, select, textarea { 
+        font-size: 13px; 
+    }
 }
-
