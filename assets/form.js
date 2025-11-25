@@ -133,3 +133,26 @@ form.addEventListener("submit", e => {
     })
     .catch(err => alert("Error: "+err));
 });
+
+// Manual reset fix
+document.getElementById("resetBtn").addEventListener("click", function () {
+
+    // Reset dropdowns
+    const typeSelect = document.getElementById("type");
+    const departmentSelect = document.getElementById("department");
+
+    if (typeSelect) typeSelect.selectedIndex = 0;
+    if (departmentSelect) departmentSelect.selectedIndex = 0;
+
+    // Hide dynamic fields
+    Object.values(dynamicFields).forEach(div => div.style.display = "none");
+
+    // Clear uploaded file list (UI)
+    fileListDiv.innerHTML = "";
+
+    // Clear stored file array
+    selectedFiles = [];
+
+    // Reset drag highlight
+    dropZone.classList.remove("dragover");
+});
