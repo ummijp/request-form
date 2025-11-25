@@ -74,6 +74,11 @@ input, select, textarea, button {
     color: #ffffff;
 }
 
+#resetBtn:active {
+    background: #ffffff;
+    color: var(--primary-color);
+}
+
 /* Drag & Drop File Upload */
 #dropZone { 
     border: 2px dashed #ccc; 
