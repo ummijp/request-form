@@ -76,7 +76,7 @@ input, select, textarea, button {
 
 #resetBtn:active {
     background: #ffffff;
-    color: var(--primary-color);
+    color: #D3D3D3;
 }
 
 /* Drag & Drop File Upload */
