@@ -157,3 +157,7 @@ document.getElementById("resetBtn").addEventListener("click", function () {
     // Reset drag highlight
     dropZone.classList.remove("dragover");
 });
+
+setTimeout(() => {
+    this.blur(); // remove focus from button
+}, 10);
