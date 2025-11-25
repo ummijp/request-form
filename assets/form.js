@@ -158,4 +158,8 @@ resetBtn.addEventListener("click", function () {
 
     // Remove focus so hover styles don’t stick
     resetBtn.blur();
+
+    // Force button style back to default
+    resetBtn.style.background = "#ffffff";
+    resetBtn.style.color = "var(--primary-color)";
 });
