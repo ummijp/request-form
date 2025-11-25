@@ -45,7 +45,7 @@ input, select, textarea, button {
     margin-top: 15px;
 }
 
-/* Submit Button */
+/* Submit Button (Kirim) */
 #submitBtn {
     background: var(--primary-color);
     color: #fff;
@@ -54,12 +54,16 @@ input, select, textarea, button {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
+    transition: background 0.2s, opacity 0.2s;
 }
 #submitBtn:hover {
     opacity: 0.9;
 }
+#submitBtn:active {
+    opacity: 0.8;
+}
 
-/* Reset Button */
+/* Reset Button (Atur Ulang) */
 #resetBtn {
     background: #ffffff;
     color: var(--primary-color);
@@ -68,10 +72,16 @@ input, select, textarea, button {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 #resetBtn:hover {
-    background: #d3d3d3;
-    color: var(--primary-color);
+    background: var(--primary-color);
+    color: #ffffff;
+}
+#resetBtn:active {
+    background: #ffffff;      /* revert to white immediately on click */
+    color: var(--primary-color); /* revert text color */
+    border-color: var(--primary-color); /* keep border correct */
 }
 
 /* Drag & Drop File Upload */
