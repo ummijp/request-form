@@ -64,6 +64,7 @@ const dynamicFieldsHTML = `
   <label>Deadline</label>
   <input type="date" name="deadline" required>
 
+  <label>Material</label>
   <div id="dropZone" style="border:2px dashed #ccc; padding:15px; text-align:center; cursor:pointer;">
     Klik atau drag file di sini
   </div>
