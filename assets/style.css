@@ -62,7 +62,7 @@ input, select, textarea, button {
 /* Reset Button */
 #resetBtn {
     background: #ffffff;
-    color: var(--primary-color);
+    color: #D3D3D3;
     border: 2px solid var(--primary-color);
     padding: 10px 20px;
     border-radius: 6px;
