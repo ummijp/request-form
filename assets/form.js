@@ -135,18 +135,17 @@ form.addEventListener("submit", e => {
     .catch(err => alert("Error: "+err));
 });
 
-// Manual reset fix
-document.getElementById("resetBtn").addEventListener("click", function () {
-
+// Reset button fix
+const resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click", function () {
     // Reset dropdowns
     const typeSelect = document.getElementById("type");
     const departmentSelect = document.getElementById("department");
-
     if (typeSelect) typeSelect.selectedIndex = 0;
     if (departmentSelect) departmentSelect.selectedIndex = 0;
 
     // Hide dynamic fields
-    Object.values(dynamicFields).forEach(div => div.style.display = "none");
+    Object.values(dynamicFields).forEach(div => div.style.display="none");
 
     // Clear uploaded file list (UI)
     fileListDiv.innerHTML = "";
@@ -154,10 +153,9 @@ document.getElementById("resetBtn").addEventListener("click", function () {
     // Clear stored file array
     selectedFiles = [];
 
-    // Reset drag highlight
+    // Remove drag highlight
     dropZone.classList.remove("dragover");
-});
 
-setTimeout(() => {
-    this.blur(); // remove focus from button
-}, 10);
+    // Remove focus so hover styles don’t stick
+    resetBtn.blur();
+});
