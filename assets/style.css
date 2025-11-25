@@ -62,7 +62,7 @@ input, select, textarea, button {
 /* Reset Button */
 #resetBtn {
     background: #ffffff;
-    color: #D3D3D3;
+    color: var(--primary-color);
     border: 2px solid var(--primary-color);
     padding: 10px 20px;
     border-radius: 6px;
@@ -70,8 +70,8 @@ input, select, textarea, button {
     font-weight: 600;
 }
 #resetBtn:hover {
-    background: var(--primary-color);
-    color: #ffffff;
+    background: #d3d3d3;
+    color: var(--primary-color);
 }
 
 /* Drag & Drop File Upload */
