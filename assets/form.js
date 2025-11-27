@@ -93,3 +93,73 @@ typeSelect.addEventListener("change", () => {
 });
 
 // Drag & Drop File Upload
+const dropZone = document.getElementById("dropZone");
+const fileInput = document.getElementById("files");
+const fileListDiv = document.getElementById("fileList");
+let selectedFiles = [];
+
+dropZone.addEventListener("click", () => fileInput.click());
+dropZone.addEventListener("dragover", e => { e.preventDefault(); dropZone.classList.add("dragover"); });
+dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
+dropZone.addEventListener("drop", e => { e.preventDefault(); dropZone.classList.remove("dragover"); handleFiles(e.dataTransfer.files); });
+fileInput.addEventListener("change", () => handleFiles(fileInput.files));
+
+function handleFiles(files){
+  for(let file of files){
+    selectedFiles.push(file);
+    const p = document.createElement("p");
+    p.textContent = file.name;
+    fileListDiv.appendChild(p);
+  }
+}
+
+// Form submission
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const fd = new FormData(form);
+  selectedFiles.forEach(f => fd.append("upload[]", f));
+
+  fetch(form.action, { method:"POST", body: fd })
+    .then(res => res.json())
+    .then(data => {
+      if(data.status==="ok"){
+        alert("Permohonan berhasil dikirim!");
+        form.reset();
+        fileListDiv.innerHTML="";
+        selectedFiles=[];
+        Object.values(dynamicFields).forEach(div => div.style.display="none");
+      } else {
+        alert("Terjadi error: "+data.message);
+      }
+    })
+    .catch(err => alert("Error: "+err));
+});
+
+// Reset button fix
+const resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click", function () {
+    // Reset dropdowns
+    const typeSelect = document.getElementById("type");
+    const departmentSelect = document.getElementById("department");
+    if (typeSelect) typeSelect.selectedIndex = 0;
+    if (departmentSelect) departmentSelect.selectedIndex = 0;
+
+    // Hide dynamic fields
+    Object.values(dynamicFields).forEach(div => div.style.display="none");
+
+    // Clear uploaded file list (UI)
+    fileListDiv.innerHTML = "";
+
+    // Clear stored file array
+    selectedFiles = [];
+
+    // Remove drag highlight
+    dropZone.classList.remove("dragover");
+
+    // Remove focus so hover styles don’t stick
+    resetBtn.blur();
+
+    // Force button style back to default
+    resetBtn.style.background = "#ffffff";
+    resetBtn.style.color = "var(--primary-color)";
+});
