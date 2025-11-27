@@ -1,0 +1,1 @@
+// Code contents from 'assets/form.js' based on commit 'f396bf1c06ee04c9a3260217fe988610566fa5cd'
