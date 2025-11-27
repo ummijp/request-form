@@ -1,39 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Form UMMI</title>
-
-<link rel="stylesheet" href="assets/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulir Permohonan UMMI</title>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<form id="requestForm" action="https://script.google.com/macros/s/AKfycbyQ-a-pXRW0ndpsk33wVg1LRjFfUK8GrVnZ5G0_JzCX9mX8x7uQcSaxaJem-qAE1y-L/exec" method="POST" enctype="multipart/form-data">
+  <!-- Dynamic fields injected by JS -->
 
-<form id="requestForm" action="https://script.google.com/macros/s/AKfycbx91tjttHGIM1C93wThXGw6TXWh8ZM_ts8DjBfMX0-XKMHQaAKLg583e4Po6a3cbjqW/exec" method="POST" enctype="multipart/form-data">
-
-  <label>Nama</label>
-  <input type="text" name="Nama">
-
-  <label>Tim</label>
-  <input type="text" name="Tim">
-
-  <label>Permohonan</label>
-  <select name="Permohonan">
-    <option value="">-- Pilih --</option>
-    <option value="Proposal">Proposal</option>
-    <option value="Dokumen">Dokumen</option>
-  </select>
-
-  <label>Upload File</label>
-  <div id="dropZone">Klik atau drop file di sini</div>
-  <input type="file" id="fileInput" name="files" multiple hidden>
-  <div id="fileList"></div>
-
+  <!-- Buttons stay in HTML -->
   <div class="button-group">
     <button type="submit" id="submitBtn">Kirim</button>
     <button type="reset" id="resetBtn">Atur Ulang</button>
   </div>
-
 </form>
 
 <script src="assets/form.js"></script>
